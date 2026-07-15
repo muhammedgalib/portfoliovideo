@@ -210,30 +210,27 @@
                 <!-- === VIDEO EDITING === -->
                 <h3 class="portfolio-subheading" data-aos="fade-right" style="margin-top: 5rem;">Video Projects</h3>
                 <div class="portfolio-grid">
+                    
                     <!-- Video 1 -->
-                    <div class="video-item" data-aos="zoom-in" data-aos-delay="0">
-                        <!-- 'controls' allows play/pause. 'poster' shows a cover image before playing -->
-                        <video controls poster="images/video-thumb-1.jpg">
-                            <source src="videos/video-1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <!-- Notice the data-video-src uses the raw.githubusercontent.com link to your portfoliovideo repo -->
+                    <div class="video-item" data-aos="zoom-in" data-aos-delay="0" data-video-src="https://raw.githubusercontent.com/muhammedgalib/portfoliovideo/main/video-1.mp4">
+                        <!-- Ensure you upload thumbnails (e.g., video-thumb-1.jpg) into your main portfolio images folder -->
+                        <img src="images/video-thumb-1.jpg" alt="Video Preview 1">
+                        <i class='bx bx-play-circle play-icon'></i>
                     </div>
                     
                     <!-- Video 2 -->
-                    <div class="video-item" data-aos="zoom-in" data-aos-delay="100">
-                        <video controls poster="images/video-thumb-2.jpg">
-                            <source src="videos/video-2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="video-item" data-aos="zoom-in" data-aos-delay="100" data-video-src="https://raw.githubusercontent.com/muhammedgalib/portfoliovideo/main/video-2.mp4">
+                        <img src="images/video-thumb-2.jpg" alt="Video Preview 2">
+                        <i class='bx bx-play-circle play-icon'></i>
                     </div>
                     
                     <!-- Video 3 -->
-                    <div class="video-item" data-aos="zoom-in" data-aos-delay="200">
-                        <video controls poster="images/video-thumb-3.jpg">
-                            <source src="videos/video-3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="video-item" data-aos="zoom-in" data-aos-delay="200" data-video-src="https://raw.githubusercontent.com/muhammedgalib/portfoliovideo/main/video-3.mp4">
+                        <img src="images/video-thumb-3.jpg" alt="Video Preview 3">
+                        <i class='bx bx-play-circle play-icon'></i>
                     </div>
+
                 </div>
 
                 <!-- Videos See More Button -->
@@ -288,10 +285,11 @@
         <i class='bx bxl-whatsapp'></i>
     </a>
 
-    <!-- Lightbox Overlay -->
+    <!-- LIGHTBOX OVERLAY (UPDATED TO SUPPORT VIDEO) -->
     <div id="lightbox">
         <span class="close-btn">&times;</span>
-        <img id="lightbox-img" src="" alt="Full-size poster">
+        <img id="lightbox-img" src="" alt="Full-size poster" style="display: none;">
+        <video id="lightbox-video" controls autoplay style="display: none;"></video>
     </div>
 
     <!-- AOS Animation Script -->
