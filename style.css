@@ -350,7 +350,7 @@ section:nth-of-type(even) {
     transform: scale(1.05);
 }
 
-/* --- Video Styles (9:16 Portrait Aspect Ratio) --- */
+/* --- Video Styles (9:16 Portrait Aspect Ratio & Auto-Thumbnail) --- */
 .video-item {
     border-radius: 8px;
     overflow: hidden;
@@ -362,17 +362,21 @@ section:nth-of-type(even) {
     aspect-ratio: 9 / 16; /* Forces 1080x1920 proportions */
 }
 
-.video-item img {
+/* Targets the auto-thumbnail video inside the grid */
+.video-item video.thumbnail, 
+.video-item > video:not(.play-icon) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease, opacity 0.3s ease;
     display: block;
+    pointer-events: none; /* Prevents play button conflicts */
 }
 
-.video-item:hover img {
+/* Hover effects for the auto-thumbnail */
+.video-item:hover video:not(.play-icon) {
     transform: scale(1.05);
-    opacity: 0.6; /* Dims the image slightly on hover */
+    opacity: 0.6; /* Dims the video slightly on hover */
 }
 
 /* Play Icon Overlay */
