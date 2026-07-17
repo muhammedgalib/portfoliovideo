@@ -35,12 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', () => {
             const videoSrc = item.getAttribute('data-video-src');
             
+            // Set the video source and show the video element
             lightboxVideo.setAttribute('src', videoSrc);
             lightboxVideo.style.display = 'block';
             lightboxImg.style.display = 'none';
             lightbox.classList.add('active');
             
-            // Force the video to load and play immediately
+            // Force the video to load and play immediately to bypass strict browsers
             lightboxVideo.load();
             lightboxVideo.play().catch(error => {
                 console.log("Browser blocked autoplay:", error);
@@ -51,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close Lightbox Function (Stops video and clears sources)
     function closeLightbox() {
         lightbox.classList.remove('active');
+        
+        // Wait for the fade-out animation to finish before clearing
         setTimeout(() => {
             // Clear image
             lightboxImg.setAttribute('src', ''); 
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close on button click
     closeBtn.addEventListener('click', closeLightbox);
     
-    // Close when clicking outside the media
+    // Close when clicking outside the media (on the black background)
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
