@@ -39,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxVideo.style.display = 'block';
             lightboxImg.style.display = 'none';
             lightbox.classList.add('active');
+            
+            // Force the video to load and play immediately
+            lightboxVideo.load();
+            lightboxVideo.play().catch(error => {
+                console.log("Browser blocked autoplay:", error);
+            });
         });
     });
 
